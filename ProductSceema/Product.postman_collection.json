@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "a8bd8ebb-ab5b-4182-82e5-5fdc72aaacaa",
+		"name": "Product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"pm.environment.set(\"imageID\", data.result._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n          \"product_id\": \"{{ProductID}}\",\n          \"position\": \"1\",\n          \"alt\": \"\",\n          \"width\": \"1234\",\n          \"height\": \"4566\",\n          \"src\": \"https://cdn.shopify.com/s/files/1/0006/9093/3842/products/ipod-nano.png?v=1633120966\",\n          \"variant_ids\": [],\n          \"admin_graphql_api_id\": \"gid://shopify/ProductImage/850703190\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/images/create",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"images",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getALLImages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/images/getImages",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"images",
+								"getImages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getImageBYID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/images/getImage/{{imageID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"images",
+								"getImage",
+								"{{imageID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteImageByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/images/delete/{{imageID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"images",
+								"delete",
+								"{{imageID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "variants",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"pm.environment.set(\"variantsID\", data.result._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n         \"product_id\":\"{{ProductID}}\",\n         \"title\": \"Black\",\n          \"price\": \"199.00\",\n          \"sku\": \"IPOD2008BLACK\",\n          \"position\": \"4\",\n          \"inventory_policy\": \"continue\",\n          \"compare_at_price\": \"\",\n          \"fulfillment_service\": \"manual\",\n          \"inventory_management\": \"shopify\",\n          \"option1\": \"Black\",\n          \"option2\": \"\",\n          \"option3\": \"\",\n          \"created_at\": \"2021-10-01T16:42:46-04:00\",\n          \"updated_at\": \"2021-10-01T16:42:46-04:00\",\n          \"taxable\": \"true\",\n          \"barcode\": \"1234_black\",\n          \"grams\": \"567\",\n          \"image_id\": \"\",\n          \"weight\": \"1.25\",\n          \"weight_unit\": \"lb\",\n          \"inventory_item_id\": \"457924702\",\n          \"inventory_quantity\": \"40\",\n          \"old_inventory_quantity\": \"40\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/variant/create",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"variant",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVariants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/variant/getVariants",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"variant",
+								"getVariants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVariantByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/variant/getVariant/{{variantsID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"variant",
+								"getVariant",
+								"{{variantsID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteVariantBYID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/variant/delete/{{variantsID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"variant",
+								"delete",
+								"{{variantsID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Options",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"pm.environment.set(\"optionsID\", data.result._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"product_id\": \"{{ProductID}}\",\n          \"name\": \"Color\",\n          \"position\": \"1\",\n          \"values\": [\n            \"Pink\",\n            \"Red\",\n            \"Green\",\n            \"Black\",\n            \"Orange\"\n          ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/options/create",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"options",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOptions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/options/getOptions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"options",
+								"getOptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOptionsByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/options/getOption/{{optionsID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"options",
+								"getOption",
+								"{{optionsID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOption",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/options/delete/{{optionsID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"options",
+								"delete",
+								"{{optionsID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "createProduct",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"pm.environment.set(\"ProductID\", data.result._id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"IPod Nano - 8GB\",\n      \"description\": \"It's the small iPod with one very big idea: Video. Now the world's most popular music player, available in 4GB and 8GB models, lets you enjoy TV shows, movies, video podcasts, and more. The larger, brighter display means amazing picture quality. In six eye-catching colors, iPod nano is stunning all around. And with models starting at just $149, little speaks volumes\",\n      \"vendor\": \"Apple\",\n      \"product_type\": \"Cult Products\",\n      \"handle\": \"ipod-nano\",\n      \"template_suffix\": \"\",\n      \"published_scope\": \"web\",\n      \"tags\": \"Emotive, Flash Memory, MP3, Music\",\n      \"admin_graphql_api_id\": \"gid://shopify/Product/632910392\",\n      \"variants\":{\n          \"title\": \"Pink\",\n          \"price\": \"199.00\",\n          \"sku\": \"IPOD2008PINK\",\n          \"position\": 1,\n          \"inventory_policy\": \"continue\",\n          \"compare_at_price\": \"\",\n          \"fulfillment_service\": \"manual\",\n          \"inventory_management\": \"shopify\",\n          \"option1\": \"Pink\",\n          \"option2\": \"\",\n          \"option3\": \"\",\n          \"taxable\": \"true\",\n          \"barcode\": \"1234_pink\",\n          \"grams\": \"567\",\n          \"image_id\": \"562641783\",\n          \"weight\": \"1.25\",\n          \"weight_unit\": \"lb\",\n          \"inventory_item_id\": \"808950810\",\n          \"inventory_quantity\": \"10\",\n          \"old_inventory_quantity\": \"10\"\n      },\n      \"images\":[\n          {\n          \"position\": 1,\n          \"alt\": \"\",\n          \"width\": \"123\",\n          \"height\": \"456\",\n          \"src\": \"https://cdn.shopify.com/s/files/1/0006/9093/3842/products/ipod-nano.png?v=1633120966\",\n          \"variant_ids\": [],\n          \"admin_graphql_api_id\": \"gid://shopify/ProductImage/850703190\"\n          }\n      ],\n      \"options\":{\n           \"name\": \"Title\",\n          \"position\": \"1\",\n          \"values\": [\n            \"Black\"\n          ]\n      },\n    \"image\": {\n        \"position\": \"1\",\n        \"alt\": \"\",\n        \"width\": \"123\",\n        \"height\": \"456\",\n        \"src\": \"https://cdn.shopify.com/s/files/1/0006/9093/3842/products/ipod-nano.png?v=1633120966\",\n        \"variant_ids\": [],\n        \"admin_graphql_api_id\": \"gid://shopify/ProductImage/850703190\"\n      }\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/product/create",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"product",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/product/getProducts",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"product",
+						"getProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/product/getProduct/{{ProductID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"product",
+						"getProduct",
+						"{{ProductID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProductBYID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/product/delete/{{ProductID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"product",
+						"delete",
+						"{{ProductID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProduct",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n         \"title\": \"IPod Nano - 8GB\",\n        \"description\": \"It's the small iPod with one very big idea: Video. Now the world's most popular music player, available in 4GB and 8GB models, lets you enjoy TV shows, movies, video podcasts, and more. The larger, brighter display means amazing picture quality. In six eye-catching colors, iPod nano is stunning all around. And with models starting at just $149, little speaks volumes\",\n        \"vendor\": \"Apple\",\n        \"product_type\": \"Cult Products\",\n        \"handle\": \"ipod-nano\",\n        \"template_suffix\": \"\",\n        \"published_scope\": \"web devloper by bala\",\n        \"tags\": \"Emotive, Flash Memory, MP3, Music\",\n        \"admin_graphql_api_id\": \"gid://shopify/Product/632910392\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/product/update/{{ProductID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"product",
+						"update",
+						"{{ProductID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
